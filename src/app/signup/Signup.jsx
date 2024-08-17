@@ -4,7 +4,9 @@ import signUpBanner from "../../assets/singup.svg";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { signUp } from "@/services/userService";
+import { useRouter } from "next/navigation";
 const Signup = () => {
+  const router = useRouter();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -46,6 +48,7 @@ const Signup = () => {
         profileURL:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz1K1evWjMTfR3IMBxQxXSGV2pTaO2rAP7EzIMB4u0YwxfFL4pJ269eff6sNvuxtjI7c4s",
       });
+      router.push('/login');
     } catch (error) {
       console.log(error);
       console.log(error.response.data.message);
